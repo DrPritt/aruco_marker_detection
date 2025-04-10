@@ -1,0 +1,61 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+-- Found sensor_msgs: 5.3.5 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+-- Found cv_bridge: 4.1.0 (/opt/ros/jazzy/share/cv_bridge/cmake)
+-- Found image_transport: 5.1.5 (/opt/ros/jazzy/share/image_transport/cmake)
+-- Found v4l2_camera: 0.7.1 (/opt/ros/jazzy/share/v4l2_camera/cmake)
+-- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'
+-- Found aruco_ros: 5.0.5 (/opt/ros/jazzy/share/aruco_ros/cmake)
+-- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Configured 'flake8' exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (1.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/piron/ar_detection_ws/build/detection_package
+-- Install configuration: ""
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch/__pycache__
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch/__pycache__/aruco_launch.cpython-312.pyc
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch/__pycache__/_launch.cpython-312.pyc
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch/_launch.py
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/ament_index/resource_index/package_run_dependencies/detection_package
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/ament_index/resource_index/parent_prefix_path/detection_package
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/environment/ament_prefix_path.sh
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/environment/ament_prefix_path.dsv
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/environment/path.sh
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/environment/path.dsv
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/local_setup.bash
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/local_setup.sh
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/local_setup.zsh
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/local_setup.dsv
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/package.dsv
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/ament_index/resource_index/packages/detection_package
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/cmake/detection_packageConfig.cmake
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/cmake/detection_packageConfig-version.cmake
+-- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/package.xml

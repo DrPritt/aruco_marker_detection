@@ -1,0 +1,37 @@
+[0.057s] Invoking command in '/home/piron/ar_detection_ws/build/detection_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/piron/ar_detection_ws/build/detection_package -- -j4 -l4
+[0.471s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.854s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.955s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.976s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.007s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.037s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.175s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.180s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.314s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.488s] -- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+[1.518s] -- Found sensor_msgs: 5.3.5 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.593s] -- Found cv_bridge: 4.1.0 (/opt/ros/jazzy/share/cv_bridge/cmake)
+[1.629s] -- Found image_transport: 5.1.5 (/opt/ros/jazzy/share/image_transport/cmake)
+[1.662s] -- Found v4l2_camera: 0.7.1 (/opt/ros/jazzy/share/v4l2_camera/cmake)
+[1.678s] -- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'
+[1.741s] -- Found aruco_ros: 5.0.5 (/opt/ros/jazzy/share/aruco_ros/cmake)
+[1.753s] [31mCMake Error at CMakeLists.txt:19 (find_package):
+[1.753s]   By not providing "Findaruco_msg.cmake" in CMAKE_MODULE_PATH this project
+[1.753s]   has asked CMake to find a package configuration file provided by
+[1.753s]   "aruco_msg", but CMake did not find one.
+[1.753s] 
+[1.753s]   Could not find a package configuration file provided by "aruco_msg" with
+[1.754s]   any of the following names:
+[1.754s] 
+[1.754s]     aruco_msgConfig.cmake
+[1.754s]     aruco_msg-config.cmake
+[1.754s] 
+[1.754s]   Add the installation prefix of "aruco_msg" to CMAKE_PREFIX_PATH or set
+[1.754s]   "aruco_msg_DIR" to a directory containing one of the above files.  If
+[1.754s]   "aruco_msg" provides a separate development package or SDK, be sure it has
+[1.754s]   been installed.
+[1.754s] 
+[1.755s] [0m
+[1.755s] -- Configuring incomplete, errors occurred!
+[1.778s] gmake: *** [Makefile:226: cmake_check_build_system] Error 1
+[1.782s] Invoked command in '/home/piron/ar_detection_ws/build/detection_package' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/piron/ar_detection_ws/build/detection_package -- -j4 -l4

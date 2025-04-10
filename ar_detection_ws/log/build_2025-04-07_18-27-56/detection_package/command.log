@@ -1,0 +1,2 @@
+Invoking command in '/home/piron/ar_detection_ws/build/detection_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/piron/ar_detection_ws/build/detection_package -- -j4 -l4
+Invoked command in '/home/piron/ar_detection_ws/build/detection_package' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/piron/ar_detection_ws/build/detection_package -- -j4 -l4

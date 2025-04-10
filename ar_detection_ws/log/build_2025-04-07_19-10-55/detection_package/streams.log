@@ -1,0 +1,54 @@
+[0.019s] Invoking command in '/home/piron/ar_detection_ws/build/detection_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/piron/ar_detection_ws/build/detection_package -- -j4 -l4
+[0.067s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.427s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.464s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.477s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.495s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.516s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.602s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.604s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.703s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.791s] -- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+[0.808s] -- Found sensor_msgs: 5.3.5 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[0.861s] -- Found cv_bridge: 4.1.0 (/opt/ros/jazzy/share/cv_bridge/cmake)
+[0.875s] -- Found image_transport: 5.1.5 (/opt/ros/jazzy/share/image_transport/cmake)
+[0.894s] -- Found v4l2_camera: 0.7.1 (/opt/ros/jazzy/share/v4l2_camera/cmake)
+[0.902s] -- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'
+[0.947s] -- Found aruco_ros: 5.0.5 (/opt/ros/jazzy/share/aruco_ros/cmake)
+[0.947s] -- Found aruco_msgs: 5.0.5 (/opt/ros/jazzy/share/aruco_msgs/cmake)
+[0.972s] -- Found rclpy: 7.1.3 (/opt/ros/jazzy/share/rclpy/cmake)
+[0.972s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[1.144s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.144s] -- Configured 'flake8' exclude dirs and/or files: 
+[1.145s] -- Added test 'lint_cmake' to check CMake code style
+[1.145s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.148s] -- Added test 'xmllint' to check XML markup files
+[1.151s] -- Configuring done (1.1s)
+[1.162s] -- Generating done (0.0s)
+[1.172s] -- Build files have been written to: /home/piron/ar_detection_ws/build/detection_package
+[1.230s] Invoked command in '/home/piron/ar_detection_ws/build/detection_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/piron/ar_detection_ws/build/detection_package -- -j4 -l4
+[1.252s] Invoking command in '/home/piron/ar_detection_ws/build/detection_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/piron/ar_detection_ws/build/detection_package
+[1.267s] -- Install configuration: ""
+[1.267s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch
+[1.267s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch/__pycache__
+[1.267s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch/__pycache__/aruco_launch.cpython-312.pyc
+[1.267s] -- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch/__pycache__/_launch.cpython-312.pyc
+[1.267s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package//launch/_launch.py
+[1.267s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/lib/detection_package/marker_logger.py
+[1.267s] -- Installing: /home/piron/ar_detection_ws/install/detection_package/lib/detection_package/aruco_marker_visualizer.py
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/ament_index/resource_index/package_run_dependencies/detection_package
+[1.268s] -- Installing: /home/piron/ar_detection_ws/install/detection_package/share/ament_index/resource_index/parent_prefix_path/detection_package
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/environment/ament_prefix_path.sh
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/environment/ament_prefix_path.dsv
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/environment/path.sh
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/environment/path.dsv
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/local_setup.bash
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/local_setup.sh
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/local_setup.zsh
+[1.268s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/local_setup.dsv
+[1.268s] -- Installing: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/package.dsv
+[1.269s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/ament_index/resource_index/packages/detection_package
+[1.269s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/cmake/detection_packageConfig.cmake
+[1.269s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/cmake/detection_packageConfig-version.cmake
+[1.269s] -- Up-to-date: /home/piron/ar_detection_ws/install/detection_package/share/detection_package/package.xml
+[1.272s] Invoked command in '/home/piron/ar_detection_ws/build/detection_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/piron/ar_detection_ws/build/detection_package

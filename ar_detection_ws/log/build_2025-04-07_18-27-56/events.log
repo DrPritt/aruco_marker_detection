@@ -1,0 +1,62 @@
+[0.000000] (-) TimerEvent: {}
+[0.000364] (detection_package) JobQueued: {'identifier': 'detection_package', 'dependencies': OrderedDict()}
+[0.000666] (detection_package) JobStarted: {'identifier': 'detection_package'}
+[0.025164] (detection_package) JobProgress: {'identifier': 'detection_package', 'progress': 'cmake'}
+[0.052565] (detection_package) JobProgress: {'identifier': 'detection_package', 'progress': 'build'}
+[0.053800] (detection_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/piron/ar_detection_ws/build/detection_package', '--', '-j4', '-l4'], 'cwd': '/home/piron/ar_detection_ws/build/detection_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'piron', 'SSH_CLIENT': '192.168.163.7 45948 22', 'XDG_SESSION_TYPE': 'tty', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/piron', 'OLDPWD': '/home/piron', 'SSH_TTY': '/dev/pts/4', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'piron', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '19', 'PATH': '/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1002', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/piron/ar_detection_ws/build/detection_package', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.163.7 45948 192.168.163.94 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy'}), 'shell': False}
+[0.099714] (-) TimerEvent: {}
+[0.200021] (-) TimerEvent: {}
+[0.300363] (-) TimerEvent: {}
+[0.400735] (-) TimerEvent: {}
+[0.471387] (detection_package) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.500824] (-) TimerEvent: {}
+[0.601121] (-) TimerEvent: {}
+[0.701440] (-) TimerEvent: {}
+[0.801805] (-) TimerEvent: {}
+[0.854975] (detection_package) StdoutLine: {'line': b'-- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.901894] (-) TimerEvent: {}
+[0.955646] (detection_package) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.976629] (detection_package) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[1.001996] (-) TimerEvent: {}
+[1.007303] (detection_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.038260] (detection_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.102088] (-) TimerEvent: {}
+[1.176222] (detection_package) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[1.180995] (detection_package) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.202162] (-) TimerEvent: {}
+[1.302454] (-) TimerEvent: {}
+[1.314555] (detection_package) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[1.402542] (-) TimerEvent: {}
+[1.488323] (detection_package) StdoutLine: {'line': b'-- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)\n'}
+[1.502626] (-) TimerEvent: {}
+[1.518289] (detection_package) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.5 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[1.593617] (detection_package) StdoutLine: {'line': b'-- Found cv_bridge: 4.1.0 (/opt/ros/jazzy/share/cv_bridge/cmake)\n'}
+[1.602704] (-) TimerEvent: {}
+[1.629651] (detection_package) StdoutLine: {'line': b'-- Found image_transport: 5.1.5 (/opt/ros/jazzy/share/image_transport/cmake)\n'}
+[1.662433] (detection_package) StdoutLine: {'line': b'-- Found v4l2_camera: 0.7.1 (/opt/ros/jazzy/share/v4l2_camera/cmake)\n'}
+[1.678338] (detection_package) StdoutLine: {'line': b"-- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'\n"}
+[1.702792] (-) TimerEvent: {}
+[1.741350] (detection_package) StdoutLine: {'line': b'-- Found aruco_ros: 5.0.5 (/opt/ros/jazzy/share/aruco_ros/cmake)\n'}
+[1.753670] (detection_package) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:19 (find_package):\n'}
+[1.753899] (detection_package) StderrLine: {'line': b'  By not providing "Findaruco_msg.cmake" in CMAKE_MODULE_PATH this project\n'}
+[1.754014] (detection_package) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[1.754108] (detection_package) StderrLine: {'line': b'  "aruco_msg", but CMake did not find one.\n'}
+[1.754199] (detection_package) StderrLine: {'line': b'\n'}
+[1.754288] (detection_package) StderrLine: {'line': b'  Could not find a package configuration file provided by "aruco_msg" with\n'}
+[1.754378] (detection_package) StderrLine: {'line': b'  any of the following names:\n'}
+[1.754466] (detection_package) StderrLine: {'line': b'\n'}
+[1.754554] (detection_package) StderrLine: {'line': b'    aruco_msgConfig.cmake\n'}
+[1.754764] (detection_package) StderrLine: {'line': b'    aruco_msg-config.cmake\n'}
+[1.754875] (detection_package) StderrLine: {'line': b'\n'}
+[1.754962] (detection_package) StderrLine: {'line': b'  Add the installation prefix of "aruco_msg" to CMAKE_PREFIX_PATH or set\n'}
+[1.755046] (detection_package) StderrLine: {'line': b'  "aruco_msg_DIR" to a directory containing one of the above files.  If\n'}
+[1.755127] (detection_package) StderrLine: {'line': b'  "aruco_msg" provides a separate development package or SDK, be sure it has\n'}
+[1.755207] (detection_package) StderrLine: {'line': b'  been installed.\n'}
+[1.755304] (detection_package) StderrLine: {'line': b'\n'}
+[1.755385] (detection_package) StderrLine: {'line': b'\x1b[0m\n'}
+[1.755464] (detection_package) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[1.778943] (detection_package) StderrLine: {'line': b'gmake: *** [Makefile:226: cmake_check_build_system] Error 1\n'}
+[1.782702] (detection_package) CommandEnded: {'returncode': 2}
+[1.802921] (-) TimerEvent: {}
+[1.820120] (detection_package) JobEnded: {'identifier': 'detection_package', 'rc': 2}
+[1.830749] (-) EventReactorShutdown: {}
