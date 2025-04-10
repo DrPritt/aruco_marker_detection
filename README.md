@@ -1,6 +1,6 @@
 # marker_detection
 
-ar_detection_ws => workspace
+ar_detection_ws => workspace 
 camera_calibration => holds the cameras calibration files (ost.yaml)
 
 First you need to source the workspace!
