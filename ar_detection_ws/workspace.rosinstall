@@ -1,0 +1,4 @@
+- git:
+    local-name: aruco_ros
+    uri: https://github.com/pal-robotics/aruco_ros.git
+    version: ros2

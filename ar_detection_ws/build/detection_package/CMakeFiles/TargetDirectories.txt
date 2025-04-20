@@ -1,9 +1,0 @@
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/uninstall.dir
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/detection_package_uninstall.dir
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/test.dir
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/edit_cache.dir
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/rebuild_cache.dir
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/list_install_components.dir
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/install.dir
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/install/local.dir
-/home/piron/ar_detection_ws/build/detection_package/CMakeFiles/install/strip.dir

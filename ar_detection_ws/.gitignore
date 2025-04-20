@@ -1,0 +1,11 @@
+build/
+install/
+log/
+.colcon/
+*.pyc
+__pycache__/
+
+# Ignore everything in src except your own package
+src/*
+!src/your_custom_package/
+

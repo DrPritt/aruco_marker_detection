@@ -4,16 +4,25 @@ ar_detection_ws => workspace
 
 camera_calibration => holds the cameras calibration files (ost.yaml)
 
-First you need to source the workspace!
+# First go into the workspace and install all the dependencies:
 
-In bash and with the repo in user's home directory:
-
+1. Import git-based dependencies into workspace src/
 ```bash
-source /opt/ros/jazzy/setup.bash
-source ~/marker_detection/ar_detection_ws/install/local_setup.bash
+vcs import src < workspace.rosinstall
 ```
-or
+
+2. Install apt-based dependencies onto the system
+```bash
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+# Second build and source the workspace:
+```bash
+colcon build
+```
+
+Sourcing:
+
 ```bash
 source ~/marker_detection/ar_detection_ws/install/setup.bash
 ```
-The latter example also sources ROS2 and the workspace!
