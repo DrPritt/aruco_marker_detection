@@ -40,7 +40,7 @@ def generate_launch_description():
             name='marker_publisher',
             output='screen',
             parameters=[{
-                'markerId': 26,
+                'markerId': 77,
                 'markerSize': LaunchConfiguration('marker_size'),
                 'eye': 'right',
                 'ref_frame': '/base_link',
