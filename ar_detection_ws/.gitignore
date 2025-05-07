@@ -7,5 +7,5 @@ __pycache__/
 
 # Ignore everything in src except your own package
 src/*
-!src/your_custom_package/
+!src/detection_package/
 
