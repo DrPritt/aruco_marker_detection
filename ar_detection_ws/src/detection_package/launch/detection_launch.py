@@ -13,7 +13,7 @@ def generate_launch_description():
         DeclareLaunchArgument('pixel_format', default_value='yuyv', description='Pixel format for the camera'),
         DeclareLaunchArgument('camera_name', default_value='v4l2_camera', description='Camera name'),
         DeclareLaunchArgument('frame_id', default_value='camera_link', description='Frame id for the camera'),
-        DeclareLaunchArgument('camera_info_path', default_value='file:///home/piron/camera_calibration/c922_pro_stream_webcam/ost.yaml', description='Path to the camera calibration YAML file'),
+        DeclareLaunchArgument('camera_info_path', default_value='file:///home/piron/marker_detection/camera_calibration/c922_pro_stream_webcam/ost.yaml', description='Path to the camera calibration YAML file'),
 	DeclareLaunchArgument('marker_size', default_value='0.08', description='The size of the ArUco marker in meters'),
 
         # Camera Node (v4l2_camera)
