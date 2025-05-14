@@ -6,6 +6,6 @@ log/
 __pycache__/
 
 # Ignore everything in src except your own package
-src/*
-!src/detection_package/
+# src/*
+# !src/detection_package/
 
