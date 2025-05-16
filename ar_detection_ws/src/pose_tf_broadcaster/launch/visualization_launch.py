@@ -3,59 +3,42 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
-        # Broadcast OptiTrack camera pose -> TF
+        # Broadcast camera pose → TF
         Node(
             package='pose_tf_broadcaster',
-            executable='pose_tf_broadcaster',
+            executable='optitrack_tf_broadcaster',
             name='optitrack_camera_tf',
             output='screen',
             parameters=[{
-                'pose_topic': '/vrpn_client_node/camera/pose',
-                'child_frame': 'optitrack_camera'
+                'pose_topic':   '/vrpn_mocap/USB_cam/pose',
+                'parent_frame': 'world',
+                'child_frame':  'optitrack_camera'
             }]
         ),
 
-        # Broadcast OptiTrack marker pose -> TF
+        # Broadcast marker pose → TF
         Node(
             package='pose_tf_broadcaster',
-            executable='pose_tf_broadcaster',
+            executable='optitrack_tf_broadcaster',
             name='optitrack_marker_tf',
             output='screen',
             parameters=[{
-                'pose_topic': '/vrpn_client_node/marker77/pose',
-                'child_frame': 'marker_77_optitrack'
+                'pose_topic':   '/vrpn_mocap/AR_marker/pose',
+                'parent_frame': 'world',
+                'child_frame':  'marker_aruco_optitrack'
             }]
         ),
 
-        # Static transform: world -> camera_frame
-        Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='world_to_camera',
-            output='screen',
-            arguments=['0', '0', '1', '0', '0', '0', 'optitrack_world', 'camera_link']
-        ),
-
-        # Broadcast ArUco marker from camera -> TF (dynamic broadcaster)
+        # Broadcast ArUco vision markers -> TF
         Node(
             package='pose_tf_broadcaster',
             executable='aruco_tf_broadcaster',
             name='aruco_marker_tf',
-            output='screen',
             parameters=[{
-                'aruco_topic': '/marker_publisher/markers',
-                'camera_frame': 'camera_link',
-                'child_frame_prefix': 'marker'
+                'aruco_topic':        '/marker_publisher/markers',
+                'camera_frame':       'optitrack_camera',
+                'child_frame_prefix': 'marker_aruco_cam_'
             }]
         ),
-
-        # Launch RViz2
-        Node(
-            package='rviz2',
-            executable='rviz2',
-            name='rviz2',
-            output='screen',
-            arguments=['-d', '/home/piron/ros2_ws/src/your_package_name/rviz/tf_marker_view.rviz']
-        )
     ])
 
