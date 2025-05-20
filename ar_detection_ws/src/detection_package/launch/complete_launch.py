@@ -4,13 +4,30 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, LogInfo, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch.launch_description_sources import AnyLaunchDescriptionSource
+from launch.launch_description_sources import AnyLaunchDescriptionSource, PythonLaunchDescriptionSource
+from ament_index_python.packages import get_package_share_directory
+
+
 
 def generate_launch_description():
     # Path to the vrpn_mocap client launch YAML for ROS 2 Jazzy
     vrpn_launch_file = os.path.join(
         '/opt/ros/jazzy/share/vrpn_mocap/launch',
         'client.launch.yaml'
+    )
+
+    viz_launch_path = os.path.join(
+    get_package_share_directory('pose_tf_broadcaster'),
+    'launch',
+    'visualization_launch.py'
+    )
+    
+    viz_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(viz_launch_path),
+        # optionally, propagate arguments:
+        # launch_arguments={'roll_cam': LaunchConfiguration('roll_cam'),
+        #                   'pitch_cam': LaunchConfiguration('pitch_cam'),
+        #                   …}.items()
     )
 
     return LaunchDescription([
@@ -48,10 +65,10 @@ def generate_launch_description():
             name='marker_publisher',
             output='screen',
             parameters=[{
-                'markerId': 77,
-                'markerSize': LaunchConfiguration('marker_size'),
+                'marker_id': 77,
+                'marker_size': LaunchConfiguration('marker_size'),
                 'eye': 'right',
-                'ref_frame': '/base_link',
+                'ref_frame': 'camera_link',
             }],
             remappings=[
                 ('image', 'image_raw'),
@@ -64,6 +81,8 @@ def generate_launch_description():
             AnyLaunchDescriptionSource(vrpn_launch_file),
             launch_arguments={'server': '192.168.1.134'}.items()
         ),
+        
+        viz_launch,
 
         LogInfo(msg="Launching ArUco marker detection, camera, and VRPN client!"),
     ])
