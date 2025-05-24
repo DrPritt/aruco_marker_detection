@@ -43,6 +43,7 @@ install(DIRECTORY
 install(PROGRAMS
   scripts/marker_logger.py
   scripts/aruco_marker_visualizer.py
+  scripts/live_error_plot.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
