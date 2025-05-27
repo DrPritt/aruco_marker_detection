@@ -9,6 +9,7 @@ from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 class ArucoTfBroadcaster(Node):
     def __init__(self):
         super().__init__('aruco_tf_broadcaster')
+        # self.declare_parameter("use_sim_time", True)
         self.declare_parameter('aruco_topic', '/marker_publisher/markers')
         self.declare_parameter('camera_frame', 'optitrack_camera')
         self.declare_parameter('child_frame_prefix', 'marker_aruco_cam_')
@@ -50,4 +51,3 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
-

@@ -1,7 +1,7 @@
 import os
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, LogInfo, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, LogInfo as NewLogInfo, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.launch_description_sources import (
@@ -40,7 +40,7 @@ def generate_launch_description():
             "x_marker": "0.0",
             "y_marker": "0.0",
             "z_marker": "0.0",
-        }.items()
+        }.items(),
     )
 
     return LaunchDescription(
@@ -67,7 +67,7 @@ def generate_launch_description():
             ),
             DeclareLaunchArgument(
                 "frame_id",
-                default_value="camera_link",
+                default_value="camera",
                 description="Frame id for the camera",
             ),
             DeclareLaunchArgument(
@@ -95,6 +95,7 @@ def generate_launch_description():
                         "camera_name": LaunchConfiguration("camera_name"),
                         "frame_id": LaunchConfiguration("frame_id"),
                         "camera_info_url": LaunchConfiguration("camera_info_path"),
+                        # "use_sim_time": True,
                     }
                 ],
             ),
@@ -109,7 +110,8 @@ def generate_launch_description():
                         "marker_id": 77,
                         "marker_size": LaunchConfiguration("marker_size"),
                         "eye": "right",
-                        "ref_frame": "camera_link",
+                        "ref_frame": "camera",
+                        # "use_sim_time": True,
                     }
                 ],
                 remappings=[
@@ -117,12 +119,24 @@ def generate_launch_description():
                     ("camera_info", "camera_info"),
                 ],
             ),
+            Node(
+                package="detection_package",
+                executable="pose_in_world.py",
+                name="pose_in_world",
+                output="screen",
+            ),
             # Include vrpn_mocap launch file
             IncludeLaunchDescription(
                 AnyLaunchDescriptionSource(vrpn_launch_file),
-                launch_arguments={"server": "192.168.1.134"}.items(),
+                launch_arguments={
+                    "server": "192.168.1.134",
+                    "update_freq": "60.",
+                    # "use_sim_time": "true",
+                }.items(),
             ),
             viz_launch,
-            LogInfo(msg="Launching ArUco marker detection, camera, and VRPN client!"),
+            NewLogInfo(
+                msg="Launching ArUco marker detection, camera, and VRPN client!"
+            ),
         ]
     )

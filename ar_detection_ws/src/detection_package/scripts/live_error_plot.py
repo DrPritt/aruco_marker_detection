@@ -10,6 +10,7 @@ import math
 class LiveErrorPlotNode(Node):
     def __init__(self):
         super().__init__("live_error_plot")
+        # self.declare_parameter("use_sim_time", True)
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
 
@@ -22,7 +23,7 @@ class LiveErrorPlotNode(Node):
 
     def timer_callback(self):
         try:
-            now = rclpy.time.Time()
+            now = self.get_clock.now()
             tf1 = self.tf_buffer.lookup_transform("world", "ar_marker_optitrack", now)
             tf2 = self.tf_buffer.lookup_transform("world", "ar_marker_camera77", now)
 

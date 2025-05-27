@@ -9,6 +9,7 @@ class OptiTrackTfBroadcaster(Node):
     def __init__(self):
         super().__init__('optitrack_tf_broadcaster')
         # parameters
+        # self.declare_parameter("use_sim_time", True)
         self.declare_parameter('pose_topic', '/vrpn_mocap/USB_cam/pose')
         self.declare_parameter('parent_frame', 'world')
         self.declare_parameter('child_frame', 'optitrack_camera')
@@ -53,4 +54,3 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
-

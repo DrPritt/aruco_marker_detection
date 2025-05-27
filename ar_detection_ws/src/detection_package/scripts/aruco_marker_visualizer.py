@@ -10,7 +10,8 @@ import tf_transformations
 class ArucoMarkerVisualizer(Node):
     def __init__(self):
         super().__init__('aruco_marker_visualizer')
-
+        
+        # self.declare_parameter("use_sim_time", True)
         self.subscription = self.create_subscription(
             MarkerArray,
             '/marker_publisher/markers',
@@ -48,4 +49,3 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
-

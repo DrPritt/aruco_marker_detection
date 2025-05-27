@@ -10,7 +10,8 @@ from builtin_interfaces.msg import Time
 class MarkerLogger(Node):
     def __init__(self):
         super().__init__('marker_logger')
-
+        
+        # self.declare_parameter('use_sim_time', True)
         self.subscription = self.create_subscription(
             MarkerArray,
             '/marker_publisher/markers',
