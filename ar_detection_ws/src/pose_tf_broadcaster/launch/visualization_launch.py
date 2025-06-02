@@ -24,69 +24,79 @@ def launch_setup(context, *args, **kwargs):
     z_marker = context.launch_configurations['z_marker']
 
     return [
-
         # Publish raw OptiTrack camera pose (ground truth raw)
         Node(
-            package='pose_tf_broadcaster',
-            executable='optitrack_tf_broadcaster',
-            name='optitrack_camera_raw_tf',
-            output='screen',
-            parameters=[{
-                'pose_topic': '/vrpn_mocap/USB_cam/pose',
-                'parent_frame': 'world',
-                'child_frame': 'optitrack_camera_raw',
-            }]
+            package="pose_tf_broadcaster",
+            executable="optitrack_tf_broadcaster",
+            name="optitrack_camera_raw_tf",
+            output="screen",
+            parameters=[
+                {
+                    "pose_topic": "/vrpn_mocap/USB_cam/pose",
+                    "parent_frame": "world",
+                    "child_frame": "optitrack_camera_raw",
+                }
+            ],
         ),
-
         # Static transform publisher: raw camera → corrected camera (apply offsets)
         Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='camera_offset',
+            package="tf2_ros",
+            executable="static_transform_publisher",
+            name="camera_offset",
             arguments=[
-                x_cam, y_cam, z_cam,
-                roll_cam, pitch_cam, yaw_cam,
-                'optitrack_camera_raw',
-                'camera'
-            ]
+                x_cam,
+                y_cam,
+                z_cam,
+                roll_cam,
+                pitch_cam,
+                yaw_cam,
+                "optitrack_camera_raw",
+                "camera",
+            ],
         ),
-
         # Publish raw OptiTrack marker pose (ground truth raw)
         Node(
-            package='pose_tf_broadcaster',
-            executable='optitrack_tf_broadcaster',
-            name='optitrack_marker_raw_tf',
-            output='screen',
-            parameters=[{
-                'pose_topic': '/vrpn_mocap/AR_marker/pose',
-                'parent_frame': 'world',
-                'child_frame': 'marker_aruco_optitrack_raw',
-            }]
+            package="pose_tf_broadcaster",
+            executable="optitrack_tf_broadcaster",
+            name="optitrack_marker_raw_tf",
+            output="screen",
+            parameters=[
+                {
+                    "pose_topic": "/vrpn_mocap/AR_marker/pose",
+                    "parent_frame": "world",
+                    "child_frame": "marker_aruco_optitrack_raw",
+                }
+            ],
         ),
-
         # Static transform publisher: raw marker → corrected marker (apply offsets)
         Node(
-            package='tf2_ros',
-            executable='static_transform_publisher',
-            name='marker_offset',
+            package="tf2_ros",
+            executable="static_transform_publisher",
+            name="marker_offset",
             arguments=[
-                x_marker, y_marker, z_marker,
-                roll_marker, pitch_marker, yaw_marker,
-                'marker_aruco_optitrack_raw',
-                'ar_marker_optitrack'
-            ]
+                x_marker,
+                y_marker,
+                z_marker,
+                roll_marker,
+                pitch_marker,
+                yaw_marker,
+                "marker_aruco_optitrack_raw",
+                "ar_marker_optitrack",
+            ],
         ),
-
-        # ArUco detected markers relative to corrected camera frame
+        
         Node(
-            package='pose_tf_broadcaster',
-            executable='aruco_tf_broadcaster',
-            name='aruco_marker_tf',
-            parameters=[{
-                'aruco_topic': '/marker_publisher/markers',
-                'camera_frame': 'camera',
-                'child_frame_prefix': 'ar_marker_camera'
-            }]
+            package="pose_tf_broadcaster",  # package containing aruco_tf_broadcaster.py
+            executable="aruco_tf_broadcaster",  # must match your setup.py entry
+            name="aruco_marker_tf",
+            output="screen",
+            parameters=[
+                {
+                    "aruco_topic": "/marker_publisher/markers",
+                    "camera_frame": "camera",  # must match the “static_transform_publisher” parent
+                    "child_frame_prefix": "marker_aruco_cam_",
+                }
+            ],
         ),
     ]
 
@@ -109,4 +119,3 @@ def generate_launch_description():
 
         OpaqueFunction(function=launch_setup)
     ])
-

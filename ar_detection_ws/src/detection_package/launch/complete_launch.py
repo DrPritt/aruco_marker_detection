@@ -52,10 +52,10 @@ def generate_launch_description():
                 description="Video device path",
             ),
             DeclareLaunchArgument(
-                "image_width", default_value="640", description="Width of the image"
+                "image_width", default_value="1280", description="Width of the image"
             ),
             DeclareLaunchArgument(
-                "image_height", default_value="480", description="Height of the image"
+                "image_height", default_value="720", description="Height of the image"
             ),
             DeclareLaunchArgument(
                 "pixel_format",
