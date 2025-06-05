@@ -2,13 +2,17 @@
 
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import PoseStamped, Pose
+from geometry_msgs.msg import PoseStamped
 from aruco_msgs.msg import MarkerArray
 import numpy as np
+import tf2_ros
+import tf_transformations
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy
+from tf2_ros import TransformException
 
 qos_profile = QoSProfile(depth=10)
 qos_profile.reliability = QoSReliabilityPolicy.BEST_EFFORT
+
 
 def quat_multiply(q1, q2):
     # q = [x, y, z, w]
@@ -44,49 +48,54 @@ class PoseInWorldNode(Node):
     def __init__(self):
         super().__init__("pose_in_world")
 
-        self.camera_pose = None
+        # TF buffer and listener
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
 
+        # Parameters
+        self.declare_parameter("camera_frame", "camera")
+        self.declare_parameter("world_frame", "world")
+
+        self.camera_frame = (
+            self.get_parameter("camera_frame").get_parameter_value().string_value
+        )
+        self.world_frame = (
+            self.get_parameter("world_frame").get_parameter_value().string_value
+        )
+
+        # Subscribe to MarkerArray (marker poses in camera frame)
         self.create_subscription(
-            PoseStamped, "/vrpn_mocap/USB_cam/pose", self.camera_pose_cb, qos_profile
+            MarkerArray, "/marker_publisher/markers", self.marker_callback, qos_profile
         )
 
-        self.get_logger().info(
-            "Subscribed to /vrpn_mocap/USB_cam/pose with PoseStamped"
-        )
-
-        self.create_subscription(
-            MarkerArray, "/marker_publisher/markers", self.marker_callback, 10
-        )
-
+        # Publisher for marker pose in world frame
         self.marker_pub = self.create_publisher(PoseStamped, "marker_in_world_pose", 10)
 
-    def camera_pose_cb(self, msg):
-        self.camera_pose = msg
+        self.get_logger().info(
+            f"Listening to TF for '{self.world_frame} → {self.camera_frame}' and to '/marker_publisher/markers'."
+        )
 
     def marker_callback(self, msg: MarkerArray):
-        if not self.camera_pose:
-            self.get_logger().warn("No camera pose received yet.")
-            return
-
+        # For each detected marker in camera frame, compute pose in world frame
         for marker in msg.markers:
-            # Camera pose in world
-            cam_p = np.array(
-                [
-                    self.camera_pose.pose.position.x,
-                    self.camera_pose.pose.position.y,
-                    self.camera_pose.pose.position.z,
-                ]
-            )
-            cam_q = np.array(
-                [
-                    self.camera_pose.pose.orientation.x,
-                    self.camera_pose.pose.orientation.y,
-                    self.camera_pose.pose.orientation.z,
-                    self.camera_pose.pose.orientation.w,
-                ]
-            )
+            try:
+                # Lookup latest transform: world → camera
+                tf_cam = self.tf_buffer.lookup_transform(
+                    self.world_frame, self.camera_frame, rclpy.time.Time()
+                )
+            except TransformException as e:
+                self.get_logger().warn(
+                    f"Could not lookup transform {self.world_frame} → {self.camera_frame}: {e}"
+                )
+                return
 
-            # Marker pose in camera
+            # Extract camera position & orientation from TF
+            cam_trans = tf_cam.transform.translation
+            cam_rot = tf_cam.transform.rotation
+            cam_p = np.array([cam_trans.x, cam_trans.y, cam_trans.z])
+            cam_q = np.array([cam_rot.x, cam_rot.y, cam_rot.z, cam_rot.w])
+
+            # Marker pose in camera frame from MarkerArray
             m_p = np.array(
                 [
                     marker.pose.pose.position.x,
@@ -103,19 +112,17 @@ class PoseInWorldNode(Node):
                 ]
             )
 
-            # Rotate marker position by camera orientation
+            # Rotate marker position into world frame
             rotated_pos = quat_rotate_vector(cam_q, m_p)
-
-            # Translate by camera position
             world_pos = cam_p + rotated_pos
 
             # Compose orientations: world_q = cam_q * marker_q
             world_q = quat_multiply(cam_q, m_q)
 
-            # Publish pose
+            # Publish PoseStamped in world frame
             pose_msg = PoseStamped()
             pose_msg.header.stamp = self.get_clock().now().to_msg()
-            pose_msg.header.frame_id = "world"
+            pose_msg.header.frame_id = self.world_frame
             pose_msg.pose.position.x = float(world_pos[0])
             pose_msg.pose.position.y = float(world_pos[1])
             pose_msg.pose.position.z = float(world_pos[2])

@@ -21,6 +21,7 @@ setup(
             "optitrack_tf_broadcaster = pose_tf_broadcaster.optitrack_tf_broadcaster:main",
             "aruco_tf_broadcaster = pose_tf_broadcaster.aruco_tf_broadcaster:main",
             "live_error_plot = detection_package.live_error_plot_node:main",
+            "cam_tf_broadcaster = pose_tf_broadcaster.cam_tf_broadcaster:main",
         ],
     },
 )

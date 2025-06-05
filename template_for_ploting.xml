@@ -3,11 +3,11 @@
  <tabbed_widget parent="main_window" name="Main Window">
   <Tab tab_name="tab4" containers="1">
    <Container>
-    <DockSplitter sizes="0.500502;0.499498" count="2" orientation="-">
+    <DockSplitter sizes="0.500502;0.499498" orientation="-" count="2">
      <DockArea name="...">
       <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-       <range top="0.500000" bottom="0.000000" left="1748881701.568193" right="1748881731.567979"/>
-       <limitY max="0.5" min="0"/>
+       <range bottom="0.000000" left="0.000000" top="0.500000" right="1749115263.473601"/>
+       <limitY min="0" max="0.5"/>
        <curve color="#f14cc1" name="Error_distants"/>
        <curve color="#b6b8b9" name="Error_x"/>
        <curve color="#a4a4a4" name="Error_y"/>
@@ -16,8 +16,8 @@
      </DockArea>
      <DockArea name="...">
       <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-       <range top="6.000000" bottom="0.000000" left="1748881701.568193" right="1748881731.567979"/>
-       <limitY max="6" min="0"/>
+       <range bottom="0.000000" left="0.000000" top="6.000000" right="1749115263.473601"/>
+       <limitY min="0" max="6"/>
        <curve color="#0e1cff" name="Distants"/>
       </plot>
      </DockArea>
@@ -26,21 +26,21 @@
   </Tab>
   <Tab tab_name="tab2" containers="1">
    <Container>
-    <DockSplitter sizes="0.500502;0.499498" count="2" orientation="-">
+    <DockSplitter sizes="0.5;0.5" orientation="-" count="2">
      <DockArea name="...">
       <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-       <range top="0.500000" bottom="0.000000" left="1748881701.568193" right="1748881731.567979"/>
-       <limitY max="0.5" min="0"/>
-       <curve color="#1f77b4" name="Error_x"/>
-       <curve color="#d62728" name="Error_y"/>
-       <curve color="#1ac938" name="Error_z"/>
+       <range bottom="0.000000" left="1749115233.482921" top="0.500000" right="1749115263.473601"/>
+       <limitY min="0" max="0.5"/>
+       <curve color="#ff30af" name="Error_z"/>
+       <curve color="#1ac938" name="Error_x"/>
+       <curve color="#ff7f0e" name="Error_y"/>
       </plot>
      </DockArea>
      <DockArea name="...">
       <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-       <range top="6.000000" bottom="0.000000" left="1748881701.568193" right="1748881731.567979"/>
-       <limitY max="6" min="0"/>
-       <curve color="#1400ff" name="Distants"/>
+       <range bottom="0.000000" left="1749115233.482921" top="6.000000" right="1749115263.473601"/>
+       <limitY min="0" max="6"/>
+       <curve color="#d62728" name="distants"/>
       </plot>
      </DockArea>
     </DockSplitter>
@@ -48,12 +48,12 @@
   </Tab>
   <Tab tab_name="tab3" containers="1">
    <Container>
-    <DockSplitter sizes="1" count="1" orientation="-">
+    <DockSplitter sizes="1" orientation="-" count="1">
      <DockArea name="...">
       <plot style="Lines" mode="XYPlot" flip_y="false" flip_x="false">
-       <range top="4.000000" bottom="0.000000" left="-0.765143" right="6.114321"/>
-       <limitY max="4" min="0"/>
-       <curve curve_x="Distants" color="#f815a0" name="[Distants;Error_distants]" curve_y="Error_distants"/>
+       <range bottom="0.000000" left="-2.782609" top="4.000000" right="2.782609"/>
+       <limitY min="0" max="4"/>
+       <curve curve_y="Error_distants" color="#f815a0" name="[Distants;Error_distants]" curve_x="Distants"/>
       </plot>
      </DockArea>
     </DockSplitter>
@@ -61,10 +61,10 @@
   </Tab>
   <Tab tab_name="tab2" containers="1">
    <Container>
-    <DockSplitter sizes="1" count="1" orientation="-">
+    <DockSplitter sizes="1" orientation="-" count="1">
      <DockArea name="...">
       <plot style="Lines" mode="TimeSeries" flip_y="false" flip_x="false">
-       <range top="242.100000" bottom="237.900000" left="1748881701.587371" right="1748881731.577343"/>
+       <range bottom="237.900000" left="1749115233.482535" top="242.100000" right="1749115263.472636"/>
        <limitY/>
        <curve color="#d62728" name="/vrpn_mocap/AR_marker/pose/pose/position/x">
         <transform name="Samples Counter" alias="/vrpn_mocap/AR_marker/pose/pose/position/x[Samples Counter]">
@@ -81,7 +81,7 @@
     </DockSplitter>
    </Container>
   </Tab>
-  <currentTabIndex index="3"/>
+  <currentTabIndex index="1"/>
  </tabbed_widget>
  <use_relative_time_offset enabled="0"/>
  <!-- - - - - - - - - - - - - - - -->
@@ -106,7 +106,7 @@
    <max_array_size value="100"/>
    <boolean_strings_to_number value="true"/>
    <remove_suffix_from_strings value="true"/>
-   <selected_topics value="/marker_in_world_pose;/tf;/vrpn_mocap/USB_cam/pose;/vrpn_mocap/AR_marker/pose"/>
+   <selected_topics value="/tf;/vrpn_mocap/AR_marker/pose;/vrpn_mocap/USB_cam/pose"/>
   </plugin>
   <plugin ID="UDP Server"/>
   <plugin ID="WebSocket Server"/>
@@ -125,7 +125,7 @@
  <previouslyLoaded_Streamer name="ROS2 Topic Subscriber"/>
  <!-- - - - - - - - - - - - - - - -->
  <customMathEquations>
-  <snippet name="Distants">
+  <snippet name="distants">
    <global></global>
    <function>result = ((value - v3)^2 + (v1 - v4)^2 + (v2 - v5)^2 )^0.5
 
@@ -134,34 +134,19 @@ return result</function>
    <additional_sources>
     <v1>/tf/world/marker_aruco_optitrack_raw/translation/y</v1>
     <v2>/tf/world/marker_aruco_optitrack_raw/translation/z</v2>
-    <v3>/tf/world/optitrack_camera_raw/translation/x</v3>
-    <v4>/tf/world/optitrack_camera_raw/translation/y</v4>
-    <v5>/tf/world/optitrack_camera_raw/translation/z</v5>
+    <v3>/tf/world/cam_actual/translation/x</v3>
+    <v4>/tf/world/cam_actual/translation/y</v4>
+    <v5>/tf/world/cam_actual/translation/z</v5>
    </additional_sources>
   </snippet>
-  <snippet name="Error_z">
+  <snippet name="Error_y">
    <global></global>
    <function>result = ((value - v1)^2)^0.5
 
 return result</function>
-   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/z</linked_source>
+   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/y</linked_source>
    <additional_sources>
-    <v1>/marker_in_world_pose/pose/position/z</v1>
-   </additional_sources>
-  </snippet>
-  <snippet name="Error_distants">
-   <global></global>
-   <function>result = ((value - v3)^2 + (v1 - v4)^2 + (v2 - v5)^2 )^0.5
-
-return result</function>
-   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/x</linked_source>
-   <additional_sources>
-    <v1>/tf/world/marker_aruco_optitrack_raw/translation/y</v1>
-    <v2>/tf/world/marker_aruco_optitrack_raw/translation/z</v2>
-    <v3>/marker_in_world_pose/pose/position/x</v3>
-    <v4>/marker_in_world_pose/pose/position/y</v4>
-    <v5>/marker_in_world_pose/pose/position/z</v5>
-    <v6>Distants</v6>
+    <v1>/marker_in_world_pose/pose/position/y</v1>
    </additional_sources>
   </snippet>
   <snippet name="Error_x">
@@ -174,14 +159,25 @@ return result</function>
     <v1>/marker_in_world_pose/pose/position/x</v1>
    </additional_sources>
   </snippet>
-  <snippet name="Error_y">
+  <snippet name="Error_distants">
+   <global></global>
+   <function>result = ((value)^2 + (v1)^2 + (v2)^2 )^0.5
+
+return result</function>
+   <linked_source>Error_x</linked_source>
+   <additional_sources>
+    <v1>Error_y</v1>
+    <v2>Error_z</v2>
+   </additional_sources>
+  </snippet>
+  <snippet name="Error_z">
    <global></global>
    <function>result = ((value - v1)^2)^0.5
 
 return result</function>
-   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/y</linked_source>
+   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/z</linked_source>
    <additional_sources>
-    <v1>/marker_in_world_pose/pose/position/y</v1>
+    <v1>/marker_in_world_pose/pose/position/z</v1>
    </additional_sources>
   </snippet>
  </customMathEquations>

@@ -34,27 +34,28 @@ def launch_setup(context, *args, **kwargs):
                 {
                     "pose_topic": "/vrpn_mocap/USB_cam/pose",
                     "parent_frame": "world",
-                    "child_frame": "optitrack_camera_raw",
+                    "child_frame": "cam_actual",
                 }
             ],
         ),
         # Static transform publisher: raw camera → corrected camera (apply offsets)
-        Node(
-            package="tf2_ros",
-            executable="static_transform_publisher",
-            name="camera_offset",
-            arguments=[
-                x_cam,
-                y_cam,
-                z_cam,
-                roll_cam,
-                pitch_cam,
-                yaw_cam,
-                "optitrack_camera_raw",
-                "camera",
-            ],
-        ),
+        # Node(
+        #     package="tf2_ros",
+        #     executable="static_transform_publisher",
+        #     name="camera_offset",
+        #     arguments=[
+        #         x_cam,
+        #         y_cam,
+        #         z_cam,
+        #         roll_cam,
+        #         pitch_cam,
+        #         yaw_cam,
+        #         "optitrack_camera_raw",
+        #         "camera",
+        #     ],
+        # ),
         # Publish raw OptiTrack marker pose (ground truth raw)
+        
         Node(
             package="pose_tf_broadcaster",
             executable="optitrack_tf_broadcaster",
@@ -97,6 +98,13 @@ def launch_setup(context, *args, **kwargs):
                     "child_frame_prefix": "marker_aruco_cam_",
                 }
             ],
+        ),
+        
+        Node(
+            package="pose_tf_broadcaster",  # Use your actual package name
+            executable="cam_tf_broadcaster",  # Should match entry in setup.py
+            name="cam_tf_broadcaster",
+            output="screen",
         ),
     ]
 

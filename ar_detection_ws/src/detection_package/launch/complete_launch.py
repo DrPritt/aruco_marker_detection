@@ -1,7 +1,11 @@
 import os
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, LogInfo as NewLogInfo, IncludeLaunchDescription
+from launch.actions import (
+    DeclareLaunchArgument,
+    LogInfo as NewLogInfo,
+    IncludeLaunchDescription,
+)
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 from launch.launch_description_sources import (
@@ -52,10 +56,10 @@ def generate_launch_description():
                 description="Video device path",
             ),
             DeclareLaunchArgument(
-                "image_width", default_value="1280", description="Width of the image"
+                "image_width", default_value="1920", description="Width of the image"
             ),
             DeclareLaunchArgument(
-                "image_height", default_value="720", description="Height of the image"
+                "image_height", default_value="1080", description="Height of the image"
             ),
             DeclareLaunchArgument(
                 "pixel_format",
@@ -111,6 +115,7 @@ def generate_launch_description():
                         "marker_size": LaunchConfiguration("marker_size"),
                         "eye": "right",
                         "ref_frame": "camera",
+                        "detection_mode": "DM_VIDEO_FAST",
                         # "use_sim_time": True,
                     }
                 ],
