@@ -1,43 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <root>
- <tabbed_widget name="Main Window" parent="main_window">
-  <Tab tab_name="tab2" containers="1">
+ <tabbed_widget parent="main_window" name="Main Window">
+  <Tab tab_name="tab1" containers="1">
    <Container>
-    <DockSplitter orientation="-" sizes="0.500502;0.499498" count="2">
+    <DockSplitter count="1" sizes="1" orientation="-">
      <DockArea name="...">
-      <plot mode="TimeSeries" style="Lines" flip_x="false" flip_y="false">
-       <range left="1750208843.298899" right="1750208873.298768" bottom="0.002125" top="0.171551"/>
+      <plot flip_y="false" flip_x="false" mode="TimeSeries" style="Lines">
+       <range top="0.277224" bottom="0.035806" right="1750211084.791219" left="1750211054.801368"/>
        <limitY/>
-       <curve name="Error_distants" color="#1ac938"/>
-       <curve name="Error_x" color="#ff7f0e"/>
-       <curve name="Error_y" color="#f14cc1"/>
-       <curve name="Error_z" color="#9467bd"/>
-      </plot>
-     </DockArea>
-     <DockArea name="...">
-      <plot mode="TimeSeries" style="Lines" flip_x="false" flip_y="false">
-       <range left="1750208843.298899" right="1750208873.298768" bottom="0.000000" top="3.672185"/>
-       <limitY min="0"/>
-       <curve name="Real distance" color="#3faaff"/>
+       <curve color="#d62728" name="Mocap_dist"/>
       </plot>
      </DockArea>
     </DockSplitter>
    </Container>
   </Tab>
-  <Tab tab_name="tab2" containers="1">
-   <Container>
-    <DockSplitter orientation="-" sizes="1" count="1">
-     <DockArea name="...">
-      <plot mode="XYPlot" style="Lines" flip_x="false" flip_y="false">
-       <range left="3.415358" right="3.928639" bottom="0.000000" top="0.300000"/>
-       <limitY min="0" max="0.3"/>
-       <curve curve_y="Error_distants" name="[Real distance;Error_distants]" curve_x="Real distance" color="#1ac938"/>
-      </plot>
-     </DockArea>
-    </DockSplitter>
-   </Container>
-  </Tab>
-  <currentTabIndex index="1"/>
+  <currentTabIndex index="0"/>
  </tabbed_widget>
  <use_relative_time_offset enabled="0"/>
  <!-- - - - - - - - - - - - - - - -->
@@ -62,7 +39,7 @@
    <max_array_size value="100"/>
    <boolean_strings_to_number value="true"/>
    <remove_suffix_from_strings value="true"/>
-   <selected_topics value="/marker_in_world_pose;/tf;/vrpn_mocap/AR_marker/pose;/vrpn_mocap/USB_cam/pose"/>
+   <selected_topics value="/tf;/vrpn_mocap/AR_marker/pose;/vrpn_mocap/USB_cam/pose"/>
   </plugin>
   <plugin ID="UDP Server"/>
   <plugin ID="WebSocket Server"/>
@@ -81,14 +58,43 @@
  <previouslyLoaded_Streamer name="ROS2 Topic Subscriber"/>
  <!-- - - - - - - - - - - - - - - -->
  <customMathEquations>
-  <snippet name="Error_y">
+  <snippet name="Real distance">
+   <global></global>
+   <function>result = ((value - v3)^2 + (v1 - v4)^2 + (v2 - v5)^2 )^0.5
+
+return result</function>
+   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/x</linked_source>
+   <additional_sources>
+    <v1>/tf/world/marker_aruco_optitrack_raw/translation/y</v1>
+    <v2>/tf/world/marker_aruco_optitrack_raw/translation/z</v2>
+    <v3>/tf/world/camera/translation/x</v3>
+    <v4>/tf/world/camera/translation/y</v4>
+    <v5>/tf/world/camera/translation/z</v5>
+   </additional_sources>
+  </snippet>
+  <snippet name="Error_z">
    <global></global>
    <function>result = ((value - v1)^2)^0.5
 
 return result</function>
-   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/y</linked_source>
+   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/z</linked_source>
    <additional_sources>
-    <v1>/marker_in_world_pose/pose/position/y</v1>
+    <v1>/marker_in_world_pose/pose/position/z</v1>
+   </additional_sources>
+  </snippet>
+  <snippet name="Mocap_dist">
+   <global></global>
+   <function>result = ((value - v3)^2 + (v1 - v4)^2 + (v2 - v5)^2 )^0.5
+
+return result</function>
+   <linked_source>/vrpn_mocap/AR_marker/pose/pose/position/x</linked_source>
+   <additional_sources>
+    <v1>/vrpn_mocap/AR_marker/pose/pose/position/y</v1>
+    <v2>/vrpn_mocap/AR_marker/pose/pose/position/z</v2>
+    <v3>/vrpn_mocap/USB_cam/pose/pose/position/x</v3>
+    <v4>/vrpn_mocap/USB_cam/pose/pose/position/y</v4>
+    <v5>/vrpn_mocap/USB_cam/pose/pose/position/z</v5>
+    <v6>Real distance</v6>
    </additional_sources>
   </snippet>
   <snippet name="Error_distants">
@@ -112,28 +118,14 @@ return result</function>
     <v1>/marker_in_world_pose/pose/position/x</v1>
    </additional_sources>
   </snippet>
-  <snippet name="Error_z">
+  <snippet name="Error_y">
    <global></global>
    <function>result = ((value - v1)^2)^0.5
 
 return result</function>
-   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/z</linked_source>
+   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/y</linked_source>
    <additional_sources>
-    <v1>/marker_in_world_pose/pose/position/z</v1>
-   </additional_sources>
-  </snippet>
-  <snippet name="Real distance">
-   <global></global>
-   <function>result = ((value - v3)^2 + (v1 - v4)^2 + (v2 - v5)^2 )^0.5
-
-return result</function>
-   <linked_source>/tf/world/marker_aruco_optitrack_raw/translation/x</linked_source>
-   <additional_sources>
-    <v1>/tf/world/marker_aruco_optitrack_raw/translation/y</v1>
-    <v2>/tf/world/marker_aruco_optitrack_raw/translation/z</v2>
-    <v3>/tf/world/camera/translation/x</v3>
-    <v4>/tf/world/camera/translation/y</v4>
-    <v5>/tf/world/camera/translation/z</v5>
+    <v1>/marker_in_world_pose/pose/position/y</v1>
    </additional_sources>
   </snippet>
  </customMathEquations>

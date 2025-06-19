@@ -79,11 +79,6 @@ def generate_launch_description():
                 default_value="file:///home/ron/marker_detection/camera_calibration/c922_pro_stream_webcam/ost.yaml",
                 description="Path to the camera calibration YAML file",
             ),
-            DeclareLaunchArgument(
-                "marker_size",
-                default_value="0.12",
-                description="The size of the ArUco marker in meters",
-            ),
             # Camera Node
             Node(
                 package="v4l2_camera",
@@ -103,7 +98,7 @@ def generate_launch_description():
                     }
                 ],
             ),
-            # ArUco Marker Detection Node
+            # ArUco Marker Detection Node --------------------  LARGE
             Node(
                 package="aruco_ros",
                 executable="marker_publisher",
@@ -112,7 +107,9 @@ def generate_launch_description():
                 parameters=[
                     {
                         "marker_id": 77,
-                        "marker_size": LaunchConfiguration("marker_size"),
+                        "marker_size": 0.124,
+                        "image_is_rectified": True,
+                        "use_camera_info": True,
                         "eye": "right",
                         "ref_frame": "camera",
                         "detection_mode": "DM_VIDEO_FAST",

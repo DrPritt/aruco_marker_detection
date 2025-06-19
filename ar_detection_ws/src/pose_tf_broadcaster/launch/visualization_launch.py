@@ -24,7 +24,29 @@ def launch_setup(context, *args, **kwargs):
     z_marker = context.launch_configurations['z_marker']
 
     return [
-        # Publish raw OptiTrack camera pose (ground truth raw)
+    
+        # UNCOMMENT for static thingy
+        
+        # Node(
+        #     package="pose_tf_broadcaster",
+        #     executable="optitrack_tf_broadcaster",
+        #     name="optitrack_camera_raw_tf",
+        #     output="screen",
+        #     parameters=[
+        #         {
+        #             "pose_topic": "/vrpn_mocap/USB_cam/pose",
+        #             "parent_frame": "world",
+        #             "child_frame": "cam_actual",
+        #         }
+        #     ],
+        # ),
+        # Node(
+        #     package="pose_tf_broadcaster",  # Use your actual package name
+        #     executable="cam_tf_broadcaster",  # Should match entry in setup.py
+        #     name="cam_tf_broadcaster",
+        #     output="screen",
+        # ),
+        
         Node(
             package="pose_tf_broadcaster",
             executable="optitrack_tf_broadcaster",
@@ -34,10 +56,11 @@ def launch_setup(context, *args, **kwargs):
                 {
                     "pose_topic": "/vrpn_mocap/USB_cam/pose",
                     "parent_frame": "world",
-                    "child_frame": "cam_actual",
+                    "child_frame": "camera",
                 }
             ],
         ),
+        
         # Static transform publisher: raw camera → corrected camera (apply offsets)
         # Node(
         #     package="tf2_ros",
@@ -55,7 +78,14 @@ def launch_setup(context, *args, **kwargs):
         #     ],
         # ),
         # Publish raw OptiTrack marker pose (ground truth raw)
-        
+        # Add this before cam_tf_broadcaster in your launch file
+        # Node(
+        #     package="tf2_ros",
+        #     executable="static_transform_publisher",
+        #     name="initial_camera_tf",
+        #     arguments=["0", "0", "0", "0", "0", "0", "1", "world", "camera"],
+        #     output="screen",
+        # ),
         Node(
             package="pose_tf_broadcaster",
             executable="optitrack_tf_broadcaster",
@@ -85,7 +115,6 @@ def launch_setup(context, *args, **kwargs):
                 "ar_marker_optitrack",
             ],
         ),
-        
         Node(
             package="pose_tf_broadcaster",  # package containing aruco_tf_broadcaster.py
             executable="aruco_tf_broadcaster",  # must match your setup.py entry
@@ -98,13 +127,6 @@ def launch_setup(context, *args, **kwargs):
                     "child_frame_prefix": "marker_aruco_cam_",
                 }
             ],
-        ),
-        
-        Node(
-            package="pose_tf_broadcaster",  # Use your actual package name
-            executable="cam_tf_broadcaster",  # Should match entry in setup.py
-            name="cam_tf_broadcaster",
-            output="screen",
         ),
     ]
 
